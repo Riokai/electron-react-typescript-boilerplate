@@ -1,43 +1,66 @@
-import * as React from 'react';
-import { RouteComponentProps } from 'react-router';
-import { Link } from 'react-router-dom';
+import * as React from 'react'
+import { Action } from 'redux'
 
-let styles = require('./Counter.scss');
+const styles = require('./Counter.scss')
 
-export interface IProps extends RouteComponentProps<any> {
-  increment(): void,
-  incrementIfOdd(): void,
-  incrementAsync(): void,
-  decrement(): void,
+export interface Props {
+  dispatch(action: Action): void
   counter: number
 }
 
-export class Counter extends React.Component<IProps> {
+export class Counter extends React.Component<Props> {
   render() {
-    const { increment, incrementIfOdd, incrementAsync, decrement, counter } = this.props;
+    const { counter, dispatch } = this.props
+
     return (
       <div>
         <div className={styles.backButton} data-tid="backButton">
-          <Link to="/">
+          <a>
             <i className="fa fa-arrow-left fa-3x" />
-          </Link>
+          </a>
         </div>
         <div className={`counter ${styles.counter}`} data-tid="counter">
           {counter}
         </div>
         <div className={styles.btnGroup}>
-          <button className={styles.btn} onClick={increment} data-tclass="btn">
+          <button
+            className={styles.btn}
+            onClick={() => {
+              dispatch({ type: 'count/add' })
+            }}
+            data-tclass="btn"
+          >
             <i className="fa fa-plus" />
           </button>
-          <button className={styles.btn} onClick={decrement} data-tclass="btn">
+          <button
+            className={styles.btn}
+            onClick={() => {
+              dispatch({ type: 'count/minus' })
+            }}
+            data-tclass="btn"
+          >
             <i className="fa fa-minus" />
           </button>
-          <button className={styles.btn} onClick={incrementIfOdd} data-tclass="btn">odd</button>
-          <button className={styles.btn} onClick={() => incrementAsync()} data-tclass="btn">async</button>
+          <button
+            className={styles.btn}
+            // onClick={incrementIfOdd}
+            data-tclass="btn"
+          >
+            odd
+          </button>
+          <button
+            className={styles.btn}
+            onClick={() => {
+              dispatch({ type: 'count/addDelay' })
+            }}
+            data-tclass="btn"
+          >
+            async
+          </button>
         </div>
       </div>
-    );
+    )
   }
 }
 
-export default Counter;
+export default Counter
