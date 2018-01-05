@@ -1,7 +1,5 @@
 import { Model } from 'dva'
-// import { routerRedux } from 'dva/router'
-
-export const delay = (timeout: number) => new Promise(resolve => setTimeout(resolve, timeout))
+import { delay } from '../utils'
 
 const model: Model = {
   namespace: 'count',

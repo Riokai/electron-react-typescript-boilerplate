@@ -1,5 +1,6 @@
 import { effects } from 'dva/saga'
-import count, { delay } from '../../app/models/count'
+import count from '../../app/models/count'
+import { delay } from '../../app/utils'
 
 const { put, call } = effects;
 
@@ -15,14 +16,14 @@ describe('Count Model', () => {
       const reducer = reducers.add;
       const state = 0;
 
-      expect(reducer(state)).toEqual(1);
+      expect(reducer(state, { type: '' })).toEqual(1);
     });
 
     it('minus', () => {
       const reducer = reducers.minus;
       const state = 0;
 
-      expect(reducer(state)).toEqual(-1);
+      expect(reducer(state, { type: '' })).toEqual(-1);
     });
   });
 
