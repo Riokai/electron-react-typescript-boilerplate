@@ -6426,7 +6426,7 @@ truncate-utf8-bytes@^1.0.0:
   dependencies:
     utf8-byte-length "^1.0.1"
 
-ts-loader@^3.1.0:
+ts-loader@^3.2.0:
   version "3.2.0"
   resolved "http://registry.npm.taobao.org/ts-loader/download/ts-loader-3.2.0.tgz#23211922179b81f7448754b7fdfca45b8374a15a"
   dependencies:

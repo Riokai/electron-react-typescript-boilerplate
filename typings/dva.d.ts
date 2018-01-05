@@ -10,6 +10,8 @@ declare module 'dva' {
 
   import { History } from "history";
 
+  // import { PutEffect, CallEffect } from 'redux-saga/effects'
+
   export interface onActionFunc {
     (api: MiddlewareAPI<any>): void;
   }
@@ -43,14 +45,15 @@ declare module 'dva' {
     [key: string]: any;
   }
 
-  export type Effect = (action: Action, effects: EffectsCommandMap) => void;
+  export type Effect = (action: Action, effects: EffectsCommandMap) => any;
   export type EffectType = 'takeEvery' | 'takeLatest' | 'watcher' | 'throttle';
   export type EffectWithType = [Effect, { type : EffectType }];
   export type Subscription = (api: SubscriptionAPI, done: Function) => void;
   export type ReducersMapObjectWithEnhancer = [ReducersMapObject, ReducerEnhancer];
 
   export interface EffectsMapObject {
-    [key: string]: Effect | EffectWithType;
+    // [key: string]: Effect | EffectWithType;
+    [key: string]: Effect;
   }
 
   export interface SubscriptionAPI {
@@ -65,8 +68,9 @@ declare module 'dva' {
   export interface Model {
     namespace: string,
     state?: any,
-    reducers?: ReducersMapObject | ReducersMapObjectWithEnhancer,
-    effects?: EffectsMapObject,
+    // reducers: ReducersMapObject | ReducersMapObjectWithEnhancer,
+    reducers: ReducersMapObject,
+    effects: EffectsMapObject,
     subscriptions?: SubscriptionsMapObject,
   }
 

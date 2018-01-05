@@ -10,11 +10,8 @@ const CounterAny = Counter as any
 function setup() {
   const actions = {
     dispatch: spy()
-    // increment: spy(),
-    // incrementIfOdd: spy(),
-    // incrementAsync: spy(),
-    // decrement: spy()
   }
+
   const component = shallow(<CounterAny counter={1} {...actions} />)
   return {
     component,
