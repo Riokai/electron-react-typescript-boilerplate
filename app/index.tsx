@@ -1,9 +1,4 @@
-// import * as React from 'react'
 import dva from 'dva'
-// import { render } from 'react-dom'
-// import { AppContainer } from 'react-hot-loader'
-// import Root from './containers/Root'
-// import CounterPage from './containers/CounterPage'
 import routes from './routes';
 import count from './models/count'
 import './app.global.scss'
