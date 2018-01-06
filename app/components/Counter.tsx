@@ -1,5 +1,6 @@
 import * as React from 'react'
 import { Action } from 'redux'
+import { Link } from 'dva/router'
 
 const styles = require('./Counter.scss')
 
@@ -15,9 +16,9 @@ export class Counter extends React.Component<Props> {
     return (
       <div>
         <div className={styles.backButton} data-tid="backButton">
-          <a>
+          <Link to="/">
             <i className="fa fa-arrow-left fa-3x" />
-          </a>
+          </Link>
         </div>
         <div className={`counter ${styles.counter}`} data-tid="counter">
           {counter}

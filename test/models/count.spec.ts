@@ -35,7 +35,7 @@ describe('Count Model', () => {
       const gen = saga({ type: 'count/addDelay' }, effects)
       let next = gen.next()
 
-      expect(next.value).toEqual(call(delay, 1000))
+      expect(next.value).toEqual(call(delay))
       
       next = gen.next()
 

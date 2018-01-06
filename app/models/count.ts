@@ -14,7 +14,7 @@ const model: Model = {
   },
   effects: {
     *addDelay(action, { call, put }) {
-      yield call(delay, 1000)
+      yield call(delay)
       yield put({ type: 'add' })
     }
   }
