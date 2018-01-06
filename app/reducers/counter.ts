@@ -5,7 +5,7 @@ export type TState = number;
 
 export default function counter(state: number = 0, action: IAction) {
   if (increment.test(action)) {
-    return state + 1;
+    return state + 2;
   } else if (decrement.test(action)) {
     return state - 1;
   }
