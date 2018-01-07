@@ -1,5 +1,5 @@
 import { createStore, applyMiddleware, compose } from 'redux';
-import thunk from 'redux-thunk';
+// import thunk from 'redux-thunk';
 import { createHashHistory } from 'history';
 import { routerMiddleware, push } from 'react-router-redux';
 import { createLogger } from 'redux-logger';
@@ -43,7 +43,8 @@ const composeEnhancers: typeof compose = window.__REDUX_DEVTOOLS_EXTENSION_COMPO
   compose;
 /* eslint-enable no-underscore-dangle */
 const enhancer = composeEnhancers(
-  applyMiddleware(sagaMiddleware, thunk, router, process.env.NODE_ENV !== 'test' ? logger : null ));
+  // applyMiddleware(sagaMiddleware, thunk, router, process.env.NODE_ENV !== 'test' ? logger : null ));
+  applyMiddleware(sagaMiddleware, router, process.env.NODE_ENV !== 'test' ? logger : null ));
 
 export = {
   history,
