@@ -1,5 +1,5 @@
 import { } from 'redux-saga'
-import { put, call, takeEvery, actionChannel, take, select, all, fork } from 'redux-saga/effects'
+import { put, call, takeEvery, select, all } from 'redux-saga/effects'
 import { push } from 'react-router-redux'
 import { delay } from '../utils'
 import { increment, incrementAsync, incrementIfOdd } from '../actions/counter'
@@ -7,7 +7,7 @@ import { increment, incrementAsync, incrementIfOdd } from '../actions/counter'
 // Our worker Saga: 将异步执行 increment 任务
 export function* incrementAsyncTask() {
   yield call(delay, 1000)
-  yield put(increment(2))
+  yield put(increment(10))
 }
 
 export function* incrementIfOddTask() {
