@@ -43,7 +43,7 @@ const composeEnhancers: typeof compose = window.__REDUX_DEVTOOLS_EXTENSION_COMPO
   compose;
 /* eslint-enable no-underscore-dangle */
 const enhancer = composeEnhancers(
-  applyMiddleware(sagaMiddleware, thunk, router, logger));
+  applyMiddleware(sagaMiddleware, thunk, router, process.env.NODE_ENV !== 'test' ? logger : null ));
 
 export = {
   history,

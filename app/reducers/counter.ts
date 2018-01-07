@@ -1,14 +1,31 @@
-import { IAction } from '../actions/helpers';
+import { createReducer } from 'redux-act'
 import { increment, decrement } from '../actions/counter';
 
 export type TState = number;
 
-export default function counter(state: number = 0, action: IAction) {
-  if (increment.test(action)) {
-    return state + 2;
-  } else if (decrement.test(action)) {
-    return state - 1;
-  }
+// const reducer = createReducer({}, 0)
 
-  return state;
-}
+// reducer.on(increment, (state: TState): TState => {
+//   return state + 1
+// })
+
+// reducer.on(decrement, (state: TState): TState => {
+//   return state - 1
+// })
+
+// export default reducer
+
+export default createReducer({
+  [increment.getType()]: (state: number, payload?: number) => {
+    let offset = 1;
+
+    if (payload) {
+      offset = payload
+    }
+
+    return state + offset
+  },
+  [decrement.getType()]: (state: number) => {
+    return state - 1
+  }
+}, 0)

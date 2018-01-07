@@ -12,6 +12,7 @@ function mapStateToProps(state: IState): Partial<IProps> {
 }
 
 function mapDispatchToProps(dispatch: Dispatch<IState>): Partial<IProps> {
+  // return bindActionCreators(CounterActions as any, dispatch);
   return bindActionCreators(CounterActions as any, dispatch);
 }
 
