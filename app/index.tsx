@@ -2,15 +2,17 @@ import * as React from 'react'
 import { render } from 'react-dom'
 import { AppContainer } from 'react-hot-loader'
 import Root from './containers/Root'
-import counterSaga from './sagas'
+// import counterSaga from './sagas'
 import './app.global.scss'
 
 const {
   configureStore,
-  history,
-  sagaMiddleware
+  history
+  // sagaMiddleware
 } = require('./store/configureStore')
 const store = configureStore()
+
+// sagaMiddleware.run(counterSaga)
 
 render(
   <AppContainer>
@@ -18,8 +20,6 @@ render(
   </AppContainer>,
   document.getElementById('root')
 )
-
-sagaMiddleware.run(counterSaga)
 
 if ((module as any).hot) {
   ;(module as any).hot.accept('./containers/Root', () => {

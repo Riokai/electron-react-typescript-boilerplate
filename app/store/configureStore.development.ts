@@ -5,7 +5,7 @@ import { routerMiddleware, push } from 'react-router-redux';
 import { createLogger } from 'redux-logger';
 import createSagaMiddleware from 'redux-saga'
 import rootReducer from '../reducers';
-// import counterSaga from '../sagas/counter';
+import rootSaga from '../sagas';
 
 import * as counterActions from '../actions/counter';
 
@@ -48,14 +48,28 @@ const enhancer = composeEnhancers(
 
 export = {
   history,
-  sagaMiddleware,
   configureStore(initialState: Object | void) {
     const store = createStore(rootReducer, initialState, enhancer);
+    
+    let sagaTask = sagaMiddleware.run(function* () {
+      yield rootSaga()
+    })
 
     if (module.hot) {
       module.hot.accept('../reducers', () =>
         store.replaceReducer(require('../reducers').default) // eslint-disable-line global-require
       );
+
+      module.hot.accept('../sagas', () => {
+        const newSaga = require('../sagas').default
+
+        sagaTask.cancel()
+        sagaTask.done.then(() => {
+          sagaTask = sagaMiddleware.run(function* replaceSaga() {
+            yield newSaga()
+          })
+        })
+      })
     }
 
     return store;
