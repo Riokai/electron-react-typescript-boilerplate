@@ -1,20 +1,19 @@
-import { connect } from 'dva'
-import { Counter } from '../components/Counter';
-import { IState } from '../models/count'
+import * as React from 'react';
+import { bindActionCreators } from 'redux';
+import { connect, Dispatch } from 'react-redux';
+import { Counter, Props } from '../components/Counter';
+import * as CounterActions from '../actions/counter';
+import { IState } from '../reducers';
 
-function mapStateToProps(state: IState) {
+function mapStateToProps(state: IState): Partial<Props> {
   return {
-    counter: state.count,
+    counter: state.counter
   };
 }
 
-<<<<<<< HEAD
-export default connect(mapStateToProps)(Counter);
-=======
-function mapDispatchToProps(dispatch: Dispatch<IState>): Partial<IProps> {
+function mapDispatchToProps(dispatch: Dispatch<IState>): Partial<Props> {
   // return bindActionCreators(CounterActions as any, dispatch);
   return bindActionCreators(CounterActions as any, dispatch);
 }
 
-export default (connect(mapStateToProps, mapDispatchToProps)(Counter) as any as React.StatelessComponent<IProps>);
->>>>>>> package
+export default (connect(mapStateToProps, mapDispatchToProps)(Counter) as any as React.StatelessComponent<Props>);
