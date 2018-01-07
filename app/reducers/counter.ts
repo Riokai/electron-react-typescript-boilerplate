@@ -3,18 +3,6 @@ import { increment, decrement } from '../actions/counter';
 
 export type TState = number;
 
-// const reducer = createReducer({}, 0)
-
-// reducer.on(increment, (state: TState): TState => {
-//   return state + 1
-// })
-
-// reducer.on(decrement, (state: TState): TState => {
-//   return state - 1
-// })
-
-// export default reducer
-
 export default createReducer({
   [increment.getType()]: (state: number, payload?: number) => {
     let offset = 1;

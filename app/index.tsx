@@ -2,7 +2,7 @@ import * as React from 'react'
 import { render } from 'react-dom'
 import { AppContainer } from 'react-hot-loader'
 import Root from './containers/Root'
-import counterSaga from './sagas/counter'
+import counterSaga from './sagas'
 import './app.global.scss'
 
 const {

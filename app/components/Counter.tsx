@@ -1,10 +1,9 @@
 import * as React from 'react'
-import { RouteComponentProps } from 'react-router'
 import { Link } from 'react-router-dom'
 
 let styles = require('./Counter.scss')
 
-export interface IProps extends RouteComponentProps<any> {
+export interface IProps {
   increment(): void
   incrementIfOdd(): void
   incrementAsync(): void

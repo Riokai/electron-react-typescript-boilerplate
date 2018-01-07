@@ -1,6 +1,5 @@
-// import { effects } from 'dva/saga'
 import { call, put, select } from 'redux-saga/effects'
-// import count from '../../app/models/count'
+import { push } from 'react-router-redux'
 import * as sagas from '../../app/sagas/counter'
 import * as actions from '../../app/actions/counter'
 import { delay } from '../../app/utils'
@@ -29,12 +28,13 @@ describe('effects', () => {
 
     expect(next.value).toEqual(select())
     
-    next = gen.next({ count: 0 })
-
+    next = gen.next({ count: 1 })
+    expect(next.value).toEqual(put(push('/')))
+    
+    next = gen.next()
     expect(next.value).toEqual(put(actions.increment(undefined)))
 
     next = gen.next()
-
     expect(next.done).toBe(true);
   });
 });
