@@ -5,14 +5,16 @@ import * as React from 'react'
 import { shallow } from 'enzyme'
 import Counter from '../../app/components/Counter'
 
-const CounterAny = Counter as any
-
 function setup() {
   const actions = {
-    dispatch: spy()
+    increment: spy(),
+    incrementIfOdd: spy(),
+    incrementAsync: spy(),
+    decrement: spy()
   }
 
-  const component = shallow(<CounterAny counter={1} {...actions} />)
+  const component = shallow(<Counter counter={1} {...actions} />)
+
   return {
     component,
     actions,
@@ -30,24 +32,24 @@ describe('Counter component', () => {
   it('should first button should call increment', () => {
     const { buttons, actions } = setup()
     buttons.at(0).simulate('click')
-    expect(actions.dispatch.called).toBe(true)
+    expect(actions.increment.called).toBe(true)
   })
 
   it('should second button should call decrement', () => {
     const { buttons, actions } = setup()
     buttons.at(1).simulate('click')
-    expect(actions.dispatch.called).toBe(true)
+    expect(actions.decrement.called).toBe(true)
   })
 
-  xit('should third button should call incrementIfOdd', () => {
+  it('should third button should call incrementIfOdd', () => {
     const { buttons, actions } = setup()
     buttons.at(2).simulate('click')
-    expect(actions.dispatch.called).toBe(true)
+    expect(actions.incrementIfOdd.called).toBe(true)
   })
 
   it('should fourth button should call incrementAsync', () => {
     const { buttons, actions } = setup()
     buttons.at(3).simulate('click')
-    expect(actions.dispatch.called).toBe(true)
+    expect(actions.incrementAsync.called).toBe(true)
   })
 })

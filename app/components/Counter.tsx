@@ -1,18 +1,25 @@
 import * as React from 'react'
-import { Action } from 'redux'
-import { Link } from 'dva/router'
+import { Link } from 'react-router-dom'
 
-const styles = require('./Counter.scss')
+let styles = require('./Counter.scss')
 
 export interface Props {
-  dispatch(action: Action): void
+  increment(): void
+  incrementIfOdd(): void
+  incrementAsync(): void
+  decrement(): void
   counter: number
 }
 
 export class Counter extends React.Component<Props> {
   render() {
-    const { counter, dispatch } = this.props
-
+    const {
+      increment,
+      incrementIfOdd,
+      incrementAsync,
+      decrement,
+      counter
+    } = this.props
     return (
       <div>
         <div className={styles.backButton} data-tid="backButton">
@@ -27,7 +34,7 @@ export class Counter extends React.Component<Props> {
           <button
             className={styles.btn}
             onClick={() => {
-              dispatch({ type: 'count/add' })
+              increment()
             }}
             data-tclass="btn"
           >
@@ -36,7 +43,7 @@ export class Counter extends React.Component<Props> {
           <button
             className={styles.btn}
             onClick={() => {
-              dispatch({ type: 'count/minus' })
+              decrement()
             }}
             data-tclass="btn"
           >
@@ -44,16 +51,16 @@ export class Counter extends React.Component<Props> {
           </button>
           <button
             className={styles.btn}
-            // onClick={incrementIfOdd}
+            onClick={() => {
+              incrementIfOdd()
+            }}
             data-tclass="btn"
           >
             odd
           </button>
           <button
             className={styles.btn}
-            onClick={() => {
-              dispatch({ type: 'count/addDelay' })
-            }}
+            onClick={() => incrementAsync()}
             data-tclass="btn"
           >
             async
