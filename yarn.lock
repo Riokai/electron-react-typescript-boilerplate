@@ -6887,7 +6887,7 @@ tslib@^1.7.1, tslib@^1.8.1:
   version "1.8.1"
   resolved "http://registry.npm.taobao.org/tslib/download/tslib-1.8.1.tgz#6946af2d1d651a7b1863b531d6e5afa41aa44eac"
 
-tslint@^5.4.3:
+tslint@^5.8.0:
   version "5.8.0"
   resolved "http://registry.npm.taobao.org/tslint/download/tslint-5.8.0.tgz#1f49ad5b2e77c76c3af4ddcae552ae4e3612eb13"
   dependencies:
