@@ -1,13 +1,12 @@
-import { } from 'redux-saga'
-import { put, call, takeEvery, select, all } from 'redux-saga/effects'
-// import { push } from 'react-router-redux'
+import { put, call, takeEvery, select, all, takeLatest } from 'redux-saga/effects'
 import { delay } from '../utils'
 import { increment, incrementAsync, incrementIfOdd } from '../actions/counter'
+import { Action } from 'redux-act'
 
 // Our worker Saga: 将异步执行 increment 任务
-export function* incrementAsyncTask() {
+export function* incrementAsyncTask(action: Action<number>) {
   yield call(delay, 1000)
-  yield put(increment(undefined))
+  yield put(increment(action.payload))
 }
 
 export function* incrementIfOddTask() {
@@ -24,7 +23,7 @@ export function* incrementIfOddTask() {
 
 // Our watcher Saga: 在每个 INCREMENT_ASYNC action 调用后，派生一个新的 incrementAsync 任务
 export function* watchIncrementAsync() {
-  yield takeEvery(incrementAsync.getType(), incrementAsyncTask)
+  yield takeLatest(incrementAsync.getType(), incrementAsyncTask)
 }
 
 export function* watchIncrementIfOdd() {

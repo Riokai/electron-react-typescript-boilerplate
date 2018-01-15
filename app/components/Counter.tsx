@@ -2,11 +2,12 @@ import * as React from 'react'
 import { Link } from 'react-router-dom'
 
 let styles = require('./Counter.scss')
+let num = 1
 
 export interface Props {
   increment(): void
   incrementIfOdd(): void
-  incrementAsync(): void
+  incrementAsync(number: number): void
   decrement(): void
   counter: number
 }
@@ -20,6 +21,7 @@ export class Counter extends React.Component<Props> {
       decrement,
       counter
     } = this.props
+
     return (
       <div>
         <div className={styles.backButton} data-tid="backButton">
@@ -60,7 +62,7 @@ export class Counter extends React.Component<Props> {
           </button>
           <button
             className={styles.btn}
-            onClick={() => incrementAsync()}
+            onClick={() => incrementAsync(num++)}
             data-tclass="btn"
           >
             async
