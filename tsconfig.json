@@ -26,6 +26,7 @@
     "app/index.tsx"
   ],
   "include": [
+    "global.d.ts",
     "app/**/*.ts",
     "app/**/*.tsx",
     "test/**/*.ts",

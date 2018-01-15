@@ -21,6 +21,10 @@ render(
   document.getElementById('root')
 )
 
+window.windowName = 'main'
+
+console.log('name', window.windowName)
+
 if ((module as any).hot) {
   ;(module as any).hot.accept('./containers/Root', () => {
     const NextRoot = require('./containers/Root').default

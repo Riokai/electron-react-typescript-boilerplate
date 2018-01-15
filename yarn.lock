@@ -34,6 +34,12 @@
     esutils "^2.0.2"
     js-tokens "^3.0.0"
 
+"@types/axios@^0.14.0":
+  version "0.14.0"
+  resolved "http://registry.npm.taobao.org/@types/axios/download/@types/axios-0.14.0.tgz#ec2300fbe7d7dddd7eb9d3abf87999964cafce46"
+  dependencies:
+    axios "*"
+
 "@types/cheerio@*":
   version "0.22.7"
   resolved "http://registry.npm.taobao.org/@types/cheerio/download/@types/cheerio-0.22.7.tgz#4a92eafedfb2b9f4437d3a4410006d81114c66ce"
@@ -180,10 +186,6 @@ acorn@^4.0.3:
 acorn@^5.0.0, acorn@^5.1.2:
   version "5.3.0"
   resolved "http://registry.npm.taobao.org/acorn/download/acorn-5.3.0.tgz#7446d39459c54fb49a80e6ee6478149b940ec822"
-
-add@^2.0.6:
-  version "2.0.6"
-  resolved "http://registry.npm.taobao.org/add/download/add-2.0.6.tgz#248f0a9f6e5a528ef2295dbeec30532130ae2235"
 
 ajv-keywords@^2.0.0, ajv-keywords@^2.1.1:
   version "2.1.1"
@@ -484,6 +486,13 @@ aws-sign2@~0.7.0:
 aws4@^1.2.1, aws4@^1.6.0:
   version "1.6.0"
   resolved "http://registry.npm.taobao.org/aws4/download/aws4-1.6.0.tgz#83ef5ca860b2b32e4a0deedee8c771b9db57471e"
+
+axios@*, axios@^0.17.1:
+  version "0.17.1"
+  resolved "http://registry.npm.taobao.org/axios/download/axios-0.17.1.tgz#2d8e3e5d0bdbd7327f91bc814f5c57660f81824d"
+  dependencies:
+    follow-redirects "^1.2.5"
+    is-buffer "^1.1.5"
 
 babel-code-frame@^6.22.0, babel-code-frame@^6.26.0:
   version "6.26.0"
@@ -2004,6 +2013,10 @@ electron-localshortcut@^3.0.0:
     keyboardevent-from-electron-accelerator "^1.1.0"
     keyboardevents-areequal "^0.2.1"
 
+electron-log@^2.2.14:
+  version "2.2.14"
+  resolved "http://registry.npm.taobao.org/electron-log/download/electron-log-2.2.14.tgz#2123319ccb8d70b0db07f0eda57d5823cb42b4b0"
+
 electron-osx-sign@0.4.7:
   version "0.4.7"
   resolved "http://registry.npm.taobao.org/electron-osx-sign/download/electron-osx-sign-0.4.7.tgz#1d75647a82748eacd48bea70616ec83ffade3ee5"
@@ -2581,6 +2594,12 @@ find-up@^2.0.0, find-up@^2.1.0:
 flatten@^1.0.2:
   version "1.0.2"
   resolved "http://registry.npm.taobao.org/flatten/download/flatten-1.0.2.tgz#dae46a9d78fbe25292258cc1e780a41d95c03782"
+
+follow-redirects@^1.2.5:
+  version "1.3.0"
+  resolved "http://registry.npm.taobao.org/follow-redirects/download/follow-redirects-1.3.0.tgz#f684871fc116d2e329fda55ef67687f4fabc905c"
+  dependencies:
+    debug "^3.1.0"
 
 font-awesome@^4.7.0:
   version "4.7.0"
@@ -5790,10 +5809,6 @@ redux-saga@*, redux-saga@^0.16.0:
   version "0.16.0"
   resolved "http://registry.npm.taobao.org/redux-saga/download/redux-saga-0.16.0.tgz#0a231db0a1489301dd980f6f2f88d8ced418f724"
 
-redux-thunk@^2.1.0:
-  version "2.2.0"
-  resolved "http://registry.npm.taobao.org/redux-thunk/download/redux-thunk-2.2.0.tgz#e615a16e16b47a19a515766133d1e3e99b7852e5"
-
 redux@^3.6.0, redux@^3.7.2:
   version "3.7.2"
   resolved "http://registry.npm.taobao.org/redux/download/redux-3.7.2.tgz#06b73123215901d25d065be342eb026bc1c8537b"
@@ -7518,10 +7533,6 @@ yargs@~3.10.0:
     cliui "^2.1.0"
     decamelize "^1.0.0"
     window-size "0.1.0"
-
-yarn@^1.3.2:
-  version "1.3.2"
-  resolved "http://registry.npm.taobao.org/yarn/download/yarn-1.3.2.tgz#5939762581b5b4ddcd3418c0f6be42df3aee195f"
 
 yauzl@2.4.1:
   version "2.4.1"

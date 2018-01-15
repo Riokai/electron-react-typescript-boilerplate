@@ -1,5 +1,5 @@
 import { call, put, select } from 'redux-saga/effects'
-import { push } from 'react-router-redux'
+// import { push } from 'react-router-redux'
 import * as sagas from '../../app/sagas/counter'
 import * as actions from '../../app/actions/counter'
 import { delay } from '../../app/utils'

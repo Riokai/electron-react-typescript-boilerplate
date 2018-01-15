@@ -50,9 +50,7 @@ app.on('ready', () =>
       mainWindow.focus()
     })
 
-    mainWindow.on('closed', () => {
-      // mainWindow = null
-    })
+    mainWindow.on('closed', () => {})
 
     if (process.env.NODE_ENV === 'development') {
       mainWindow.webContents.openDevTools()

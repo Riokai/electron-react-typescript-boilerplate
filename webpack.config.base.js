@@ -12,7 +12,10 @@ module.exports = {
       {
         test: /\.tsx?$/,
         // loaders: ['react-hot-loader/webpack', 'ts-loader'],
-        loaders: ['react-hot-loader/webpack', 'awesome-typescript-loader'],
+        loaders: [
+          'react-hot-loader/webpack',
+          'awesome-typescript-loader?useCache'
+        ],
         exclude: /node_modules/
       },
       {
