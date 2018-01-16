@@ -7,7 +7,7 @@ import { delay } from '../../app/utils'
 describe('effects', () => {
   it('incrementAsyncTask', () => {
     const saga = sagas.incrementAsyncTask
-    const gen = saga()
+    const gen = saga({ payload: 1, type: '2322' })
     let next = gen.next()
 
     expect(next.value).toEqual(call(delay, 1000))

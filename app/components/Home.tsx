@@ -1,6 +1,6 @@
 import * as React from 'react'
 // import { Link } from 'react-router-dom'
-import request from '../utils/request'
+// import request from '../utils/request'
 
 let styles = require('./Home.scss')
 
@@ -17,12 +17,12 @@ export class Home extends React.Component<Props> {
           {/* <Link to="/counter">to Counter</Link> */}
           <a
             onClick={() => {
-              // this.props.replacePath('/counter')
-              request({
-                url: 'https://www.baidu.com'
-              }).then(res => {
-                console.log('res', res)
-              })
+              this.props.replacePath('/counter')
+              // request({
+              //   url: 'https://www.baidu.com'
+              // }).then(res => {
+              //   console.log('res', res)
+              // })
             }}
           >
             to Counter

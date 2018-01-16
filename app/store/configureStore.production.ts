@@ -17,7 +17,6 @@ export = {
 
     sagaMiddleware.run(rootSaga)
     
-
     return store
   }
 };
